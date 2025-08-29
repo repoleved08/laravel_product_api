@@ -1,13 +1,21 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TaskController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\TaskController;
+use Illuminate\Support\Facades\Route;
 
+// Authentication routes
+Route::post('register', [AuthController::class, 'register']);
 
-Route::apiResource('tasks', TaskController::class);
-Route::post('tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
-Route::post('tasks/{task}/incomplete', [TaskController::class, 'incomplete'])->name('tasks.incomplete');
+// Protected routes (require token)
+Route::middleware('auth:sanctum')->group(function () {
+    // Task routes
+    Route::apiResource('tasks', TaskController::class);
 
-// Product routes
-Route::apiResource('products', ProductController::class);
+    // Product routes
+    Route::apiResource('products', ProductController::class);
+
+    // Logout
+    // Route::post('logout', [AuthController::class, 'logout']);
+});
