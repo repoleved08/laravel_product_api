@@ -107,4 +107,21 @@ class AuthController extends Controller
             'token' => $token,
         ], 200);
     }
+
+    /**
+     * Logout Route
+     *
+     * @authenticated
+     *
+     * @response 200 {
+     *   "message": "Logged out successfully and tokens deleted"
+     * }
+     */
+    public function logout(Request $request)
+    {
+        $request->user()->tokens()->delete();
+        return response()->json([
+            'message' => 'Logged out successfully and tokens deleted',
+        ], 200);
+    }
 }
