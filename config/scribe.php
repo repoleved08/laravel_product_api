@@ -107,7 +107,7 @@ return [
         'enabled' => true,
 
         // By default, do endpoints require authentication?
-        'default' => false,
+        'default' => true,
 
         // Where should the auth value be sent? (header, query, body, or bearer)
         'in' => 'bearer',

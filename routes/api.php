@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 // Authentication routes
 Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
 
 // Protected routes (require token)
 Route::middleware('auth:sanctum')->group(function () {
