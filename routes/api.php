@@ -11,6 +11,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 // Protected routes (require token)
 Route::middleware('auth:sanctum')->group(function () {
+
     // Task routes
     Route::apiResource('tasks', TaskController::class);
 
@@ -18,5 +19,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('products', ProductController::class);
 
     // Logout
-    // Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('logout', [AuthController::class, 'logout']);
 });

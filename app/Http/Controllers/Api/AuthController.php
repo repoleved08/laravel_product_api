@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Controller for managing authentication
  *
- * @group authentication
+ * @group Authentication
  * Apis for managing users
  */
 class AuthController extends Controller
@@ -120,6 +120,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
+
         return response()->json([
             'message' => 'Logged out successfully and tokens deleted',
         ], 200);

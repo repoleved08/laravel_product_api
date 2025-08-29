@@ -1,4 +1,4 @@
-name: authentication
+name: Authentication
 description: 'Apis for managing users'
 endpoints:
   -
@@ -6,7 +6,7 @@ endpoints:
       - POST
     uri: api/register
     metadata:
-      groupName: authentication
+      groupName: Authentication
       groupDescription: 'Apis for managing users'
       subgroup: ''
       subgroupDescription: ''
@@ -107,7 +107,7 @@ endpoints:
       - POST
     uri: api/login
     metadata:
-      groupName: authentication
+      groupName: Authentication
       groupDescription: 'Apis for managing users'
       subgroup: ''
       subgroupDescription: ''
@@ -177,6 +177,50 @@ endpoints:
         custom: []
     responseFields: []
     auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: 'Apis for managing users'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Logout Route'
+      description: ''
+      authenticated: true
+      deprecated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Logged out successfully and tokens deleted"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Bearer 1|abcdef1234567890...'
     controller: null
     method: null
     route: null
